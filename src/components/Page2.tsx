@@ -17,7 +17,10 @@ const Page2 = () => {
     }
   }, [isFormSubmitted, navigate]);
 
-  
+  if (!isFormSubmitted) {
+    return null; 
+  }
+
   return (
     <div style={{ height: 400, width: '100%' }}>
       <h1>Data fetched from the API:</h1>

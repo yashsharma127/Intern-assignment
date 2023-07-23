@@ -25,7 +25,25 @@ const Form = () => {
   const handleSubmit = async ( event: { preventDefault: () => void; } ) => {
     event.preventDefault()
 
+    //custom validations for naame number and email
+    if (!formData.name || !formData.phoneNumber || !formData.email) {
+        alert('Please fill in all the fields.');
+        return;
+      }
+  
+      const phoneNumberAsNumber = Number(formData.phoneNumber);
+      if (isNaN(phoneNumberAsNumber) || !/^[\d]{10}$/.test(formData.phoneNumber)) {
+        alert('Please enter a valid 10-digit phone number.');
+        return;
+      }
+  
+      const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.test(formData.email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
     
+
     try {
         // sending form data to server i.e in this case db.json using axios
       const response = await axios.post('http://localhost:3001/data', formData);

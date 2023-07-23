@@ -1,6 +1,5 @@
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import  { useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -45,26 +44,20 @@ const Form = () => {
         return;
       }
     
+      // Save data of the form to local storage
+    localStorage.setItem('userData', JSON.stringify(formData));
+      console.log(formData)
+    alert('Form submitted successfully');
 
-    try {
-        // sending form data to server i.e in this case db.json using axios
-      const response = await axios.post('http://localhost:3001/data', formData);
-      console.log(response.data);
-      alert('Form submitted successfully');  
+    // Clearing the form after successful submission
+    setFormData({
+      name: '',
+      phoneNumber: '',
+      email: '',
+    });
 
-      // Clearing the form after successful submission
-      setFormData({
-        name: '',
-        phoneNumber: '',
-        email: '',
-      });
-      
-      //state is used in navigate so that if person try to access page2 
-      //withouth submitting for hes rediredted to this page
-      navigate('/components/Page2', { state: { formSubmitted: true } });
-  } catch (error) {
-    console.error('Error while submitting form:', error);
-  }
+    //using navigate route to go to page2
+    navigate('/components/Page2', { state: { formSubmitted: true } });
   };
 
 

@@ -58,8 +58,10 @@ const Form = () => {
         phoneNumber: '',
         email: '',
       });
-
-      navigate('/components/Page2');
+      
+      //state is used in navigate so that if person try to access page2 
+      //withouth submitting for hes rediredted to this page
+      navigate('/components/Page2', { state: { formSubmitted: true } });
   } catch (error) {
     console.error('Error while submitting form:', error);
   }

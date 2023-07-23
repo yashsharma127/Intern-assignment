@@ -1,6 +1,7 @@
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import  { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 
 const Form = () => {
@@ -12,6 +13,8 @@ const Form = () => {
     email: '',
   });
 
+    //routing using navigate
+    const navigate = useNavigate()
 
   //handel changes in input fields
   const handleChange = (event: { target: { name: any; value: any; }; }) => {
@@ -49,7 +52,7 @@ const Form = () => {
       const response = await axios.post('http://localhost:3001/data', formData);
       console.log(response.data);
       alert('Form submitted successfully');  
-      
+
       // Clearing the form after successful submission
       setFormData({
         name: '',
@@ -57,6 +60,7 @@ const Form = () => {
         email: '',
       });
 
+      navigate('/components/Page2');
   } catch (error) {
     console.error('Error while submitting form:', error);
   }

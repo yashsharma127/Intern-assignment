@@ -48,7 +48,8 @@ const Form = () => {
         // sending form data to server i.e in this case db.json using axios
       const response = await axios.post('http://localhost:3001/data', formData);
       console.log(response.data);
-
+      alert('Form submitted successfully');  
+      
       // Clearing the form after successful submission
       setFormData({
         name: '',
@@ -75,7 +76,7 @@ const Form = () => {
             onChange={handleChange}
             margin="normal"
             variant="outlined"
-            required
+            
           />
           <TextField
             fullWidth
@@ -85,7 +86,7 @@ const Form = () => {
             onChange={handleChange}
             margin="normal"
             variant="outlined"
-            required
+            
           />
           <TextField
             fullWidth
@@ -95,7 +96,7 @@ const Form = () => {
             onChange={handleChange}
             margin="normal"
             variant="outlined"
-            required
+            
           />
           <Button type="submit" variant="contained" color="primary">
             Submit

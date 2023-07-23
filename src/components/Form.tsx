@@ -1,5 +1,6 @@
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import  { useState } from 'react'
+import axios from 'axios'
 
 
 const Form = () => {
@@ -23,9 +24,26 @@ const Form = () => {
   //handel changes occurs when subit button is clicked
   const handleSubmit = async ( event: { preventDefault: () => void; } ) => {
     event.preventDefault()
+
+    
+    try {
+        // sending form data to server i.e in this case db.json using axios
+      const response = await axios.post('http://localhost:3001/data', formData);
+      console.log(response.data);
+
+      // Clearing the form after successful submission
+      setFormData({
+        name: '',
+        phoneNumber: '',
+        email: '',
+      });
+
+  } catch (error) {
+    console.error('Error while submitting form:', error);
+  }
   };
 
-  
+
     return (
         <Container maxWidth="sm">
       <Box mt={5}>

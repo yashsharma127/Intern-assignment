@@ -1,4 +1,5 @@
 import Api from "./Api";
+import DepartmentList from "./DepartmentList";
 
 const Page2 = () => {
   
@@ -11,7 +12,7 @@ const Page2 = () => {
       &nbsp;
 
       <h1>Department List</h1>
-      
+      <DepartmentList />
     </div>
   );
 };

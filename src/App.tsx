@@ -1,8 +1,10 @@
+import Form from './components/Form'
+
 
 const App = () => {
   return (
     <div>
-      Starting assignment
+      <Form />
     </div>
   );
 };

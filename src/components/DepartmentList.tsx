@@ -23,15 +23,17 @@ const departmentData: {
 ];
 
 const DepartmentList = () => {
-    
+    //states used to store department and subdepartment
     const [selectDepart, setselectDepart] = useState<{ [key: string]: boolean }>({});
     const [selectSubdepart, setselectSubdepart] = useState<{ [key: string]: boolean }>({});
   
+    //handling department checkbox changes
     const handleDepartmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const department = event.target.name;
     const newselectDepart = { ...selectDepart };
     const newselectSubdepart = { ...selectSubdepart };
 
+    //checked event 
     if (event.target.checked) {
       newselectDepart[department] = true;
       departmentData
@@ -51,12 +53,15 @@ const DepartmentList = () => {
     setselectDepart(newselectDepart);
     setselectSubdepart(newselectSubdepart);
   };
+
+  //handel sub department checkboxes
   const handleSubDepartmentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const subDepartment = event.target.name;
     const department = departmentData.find((dep) =>
       dep.sub_departments.includes(subDepartment)
     )?.department;
 
+    //conditions with department checkbox and subdepartment checkbox
     if (department) {
       const newselectSubdepart = { ...selectSubdepart };
       const newselectDepart = { ...selectDepart };

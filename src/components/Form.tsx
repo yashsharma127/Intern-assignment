@@ -23,7 +23,6 @@ const Form = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-
   //handel changes occurs when subit button is clicked
   const handleSubmit = async ( event: { preventDefault: () => void; } ) => {
     event.preventDefault()

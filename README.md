@@ -10,7 +10,6 @@ Deployment
 
 Task 1: Application Configuration
 React application using Typescript and Vite.
-If you are unfamiliar with Vite, please refer to the following link for more information: https://vitejs.dev/guide/
 Configuring the application with MUI, ensuring that all components within the application (e.g. buttons, text fields, dialogs) use MUI components.
 
 Task 2: First Page of the Application
@@ -19,7 +18,7 @@ Name
 Phone number
 Email
 Upon completion, saving the user details in localstorage and routing the user to the second page.
-If the user attempts to access the second page without providing the necessary information, redirect them back to the first page with a message indicating that they must enter their details before accessing the page.
+If the user attempts to access the second page without providing the necessary information, redirecting them back to the first page with a message indicating that they must enter their details before accessing the page.
 
 Task 3: Second Page of the Application[Component 1]
 Fetching a list of JSON details from an API https://jsonplaceholder.typicode.com/posts
@@ -28,7 +27,6 @@ Displaying the data in a table using the following package: https://mui.com/x/re
 
 Task 4: Second Page of the Application[Component 2]
 Creating another component below the table.
-You can hardcode the given json in your application
 The component will be the list of department and each department has sub departments
 Sub departments can be expanded and collapsed by the user
 
